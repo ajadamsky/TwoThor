@@ -1,0 +1,29 @@
+@model RegisterViewModel
+
+<form asp-action="EditProfile">
+    <center><label class="centerheading_nocolor">Edit your 2Thor profile</label></center>
+    <hr />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" name="Model.Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <input type="hidden" value="@Model.Email" name="Model.Email">
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" name="Model.Description" class="form-control" ></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label style="color:#fb8716">Remember to hook off here which subjects you teach every time you update your profile</label>
+        @foreach(Subject s in Model.Subjects)
+        { 
+            <html><input type="checkbox" value=@s.SubjectName name=Model.SubjectsKnown[@Model.Subjects.IndexOf(s)] />
+            <input type="hidden" value="false" name=Model.SubjectsKnown[@Model.Subjects.IndexOf(s)] />
+            <label for=@Model.Subjects.IndexOf(s)>@s.SubjectName</label><br></html>
+        }
+    </div>
+    <div class="form-group">
+        <center> <input type="image" id="Submit" src="../images/Button save.png" data-toggle="Submit" width="150px"/></center> 
+    </div>
+</form>

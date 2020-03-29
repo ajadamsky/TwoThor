@@ -1,0 +1,30 @@
+@model twothor.Models.TwoThorJob
+
+<div class="well well-sm">
+<div class="row">
+    <div class="col-md-8 newmessage" >
+        <form asp-action="NewJob">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <h5>Plan a new meeting</h5>
+                <input type="hidden" value="@Model.TwoThorEmail" name="TwoThorEmail">
+                <input type="hidden" value="@Model.OtherName" name="OtherName">
+                 <h3>Location</h3>
+                <input type="text" id="Location" name ="Location" class="form-control" />
+                <h3>Date</h3>
+                <input type="date" id="date" name ="date" class="form-control" />
+                <h3>Time</h3>
+                <input type="time" id="time" name ="time" class="form-control" />
+                
+                <h3>Subject</h3>
+                @foreach (Subject s in Model.SubjectsKnown) {
+                    <Html class="subjectradio"><input type="radio" name="JobSubject" value="@s.SubjectName" /> @s.SubjectName <br></Html>
+                }
+            </div>
+            <div class="form-group">
+                <input type="Submit" value="Submit" id="Submit" class="orangebutton" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>

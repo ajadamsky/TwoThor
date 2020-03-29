@@ -1,0 +1,13 @@
+@model twothor.Models.ChatMessage
+
+
+<form asp-action="SendMessage">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <input type="hidden" value="@Model.RecipientName" name="RecipientName">
+        <textarea asp-for="Content" id="Content" class="form-control" placeholder="new message" style="width:666px ; margin-left:10px;border: 1px solid #fb8716!important;"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="Submit" value="Send Message" id="Submit" class="orangebutton" style=" margin-left:10px;"/>
+    </div>
+</form>

@@ -1,0 +1,36 @@
+.wrapper
+{
+    width: 90%;
+}
+
+.logofooter
+{
+    position: absolute;
+    width: 15%;
+    cursor: pointer;
+    top: 70px;
+    right:160px;
+    margin-right: 200px;
+
+}
+
+.container 
+{
+    color: orange;
+ 
+}
+
+.content2
+{
+    width: 300px;
+    position: relative;
+ 
+}
+
+.form-control{
+    height: 200px;
+    display: none;
+}
+
+
+

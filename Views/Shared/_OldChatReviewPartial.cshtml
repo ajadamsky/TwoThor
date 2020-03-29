@@ -1,0 +1,25 @@
+@model twothor.Models.TwoThorReview
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NewReview">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <h3>Please write a review of 2Thor:</h3>
+                <input type="hidden" value="@Model.TwoThorUsername" name="TwoThorUsername">
+                <input type="hidden" value="@Model.SubjectName" name="SubjectName">
+                <input type="hidden" value="@Model.OtherName" name="OtherName">
+                <input asp-for="Review" id="Review" name ="Review" class="form-control" />
+                <h4>How many hammers would you rate your session?</h4>
+                1:<input type="radio" name="HammerAmount" value=1/> 
+                2:<input type="radio" name="HammerAmount" value=2/> 
+                3:<input type="radio" name="HammerAmount" value=3/> 
+                4:<input type="radio" name="HammerAmount" value=4/> 
+                5:<input type="radio" name="HammerAmount" value=5/>
+            </div>
+            <div class="form-group">
+                <input type="Submit" class="button" />
+            </div>
+        </form>
+    </div>
+</div>  

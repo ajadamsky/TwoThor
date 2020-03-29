@@ -1,0 +1,63 @@
+/Users/Adrian/twothor/bin/Debug/netcoreapp2.0/app.db
+/Users/Adrian/twothor/bin/Debug/netcoreapp2.0/twothor.deps.json
+/Users/Adrian/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.json
+/Users/Adrian/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.dev.json
+/Users/Adrian/twothor/bin/Debug/netcoreapp2.0/twothor.dll
+/Users/Adrian/twothor/bin/Debug/netcoreapp2.0/twothor.pdb
+/Users/Adrian/twothor/obj/Debug/netcoreapp2.0/twothor.csproj.CoreCompileInputs.cache
+/Users/Adrian/twothor/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/Users/Adrian/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfoInputs.cache
+/Users/Adrian/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfo.cs
+/Users/Adrian/twothor/obj/Debug/netcoreapp2.0/twothor.dll
+/Users/Adrian/twothor/obj/Debug/netcoreapp2.0/twothor.pdb
+/Users/franzi/twothor/bin/Debug/netcoreapp2.0/app.db
+/Users/franzi/twothor/bin/Debug/netcoreapp2.0/twothor.deps.json
+/Users/franzi/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.json
+/Users/franzi/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.dev.json
+/Users/franzi/twothor/bin/Debug/netcoreapp2.0/twothor.dll
+/Users/franzi/twothor/bin/Debug/netcoreapp2.0/twothor.pdb
+/Users/franzi/twothor/obj/Debug/netcoreapp2.0/twothor.csproj.CoreCompileInputs.cache
+/Users/franzi/twothor/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/Users/franzi/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfoInputs.cache
+/Users/franzi/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfo.cs
+/Users/franzi/twothor/obj/Debug/netcoreapp2.0/twothor.dll
+/Users/franzi/twothor/obj/Debug/netcoreapp2.0/twothor.pdb
+D:/Skole UiA/Bitbucket/2Thor/twothor/bin/Debug/netcoreapp2.0/app.db
+D:/Skole UiA/Bitbucket/2Thor/twothor/bin/Debug/netcoreapp2.0/twothor.deps.json
+D:/Skole UiA/Bitbucket/2Thor/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.json
+D:/Skole UiA/Bitbucket/2Thor/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.dev.json
+D:/Skole UiA/Bitbucket/2Thor/twothor/bin/Debug/netcoreapp2.0/twothor.dll
+D:/Skole UiA/Bitbucket/2Thor/twothor/bin/Debug/netcoreapp2.0/twothor.pdb
+D:/Skole UiA/Bitbucket/2Thor/twothor/obj/Debug/netcoreapp2.0/twothor.csproj.CoreCompileInputs.cache
+D:/Skole UiA/Bitbucket/2Thor/twothor/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+D:/Skole UiA/Bitbucket/2Thor/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfoInputs.cache
+D:/Skole UiA/Bitbucket/2Thor/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfo.cs
+D:/Skole UiA/Bitbucket/2Thor/twothor/obj/Debug/netcoreapp2.0/twothor.dll
+D:/Skole UiA/Bitbucket/2Thor/twothor/obj/Debug/netcoreapp2.0/twothor.pdb
+D:/Skole UiA/Bitbucket/2Thor/twothor/obj/Debug/netcoreapp2.0/twothor.csprojResolveAssemblyReference.cache
+C:/Users/ssr/dat219/twothor/twothor/bin/Debug/netcoreapp2.0/app.db
+C:/Users/ssr/dat219/twothor/twothor/bin/Debug/netcoreapp2.0/twothor.deps.json
+C:/Users/ssr/dat219/twothor/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.json
+C:/Users/ssr/dat219/twothor/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.dev.json
+C:/Users/ssr/dat219/twothor/twothor/bin/Debug/netcoreapp2.0/twothor.dll
+C:/Users/ssr/dat219/twothor/twothor/bin/Debug/netcoreapp2.0/twothor.pdb
+C:/Users/ssr/dat219/twothor/twothor/obj/Debug/netcoreapp2.0/twothor.csprojResolveAssemblyReference.cache
+C:/Users/ssr/dat219/twothor/twothor/obj/Debug/netcoreapp2.0/twothor.csproj.CoreCompileInputs.cache
+C:/Users/ssr/dat219/twothor/twothor/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+C:/Users/ssr/dat219/twothor/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfoInputs.cache
+C:/Users/ssr/dat219/twothor/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfo.cs
+C:/Users/ssr/dat219/twothor/twothor/obj/Debug/netcoreapp2.0/twothor.dll
+C:/Users/ssr/dat219/twothor/twothor/obj/Debug/netcoreapp2.0/twothor.pdb
+/Users/Adrian/twothor/obj/Debug/netcoreapp2.0/twothor.csprojResolveAssemblyReference.cache
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/bin/Debug/netcoreapp2.0/app.db
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/bin/Debug/netcoreapp2.0/twothor.deps.json
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.json
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/bin/Debug/netcoreapp2.0/twothor.runtimeconfig.dev.json
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/bin/Debug/netcoreapp2.0/twothor.dll
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/bin/Debug/netcoreapp2.0/twothor.pdb
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/obj/Debug/netcoreapp2.0/twothor.csproj.CoreCompileInputs.cache
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfoInputs.cache
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/obj/Debug/netcoreapp2.0/twothor.AssemblyInfo.cs
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/obj/Debug/netcoreapp2.0/twothor.dll
+/Users/Adrian/Documents/github/Procject .ASP NET/twothor/obj/Debug/netcoreapp2.0/twothor.pdb

@@ -1,0 +1,39 @@
+@model twothor.Models.TwoThorReview
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="NewReview">
+            <div asp-validation-summary="ModelOnly"></div>
+             <div class="form-group wellChatOther">
+                <h5>Evaluate your 2Thor</h5>
+                <p>Please write a review of @Model.TwoThorUsername.Substring(0, @Model.TwoThorUsername.IndexOf("@")) for helping with @Model.SubjectName:</p>
+                <input type="hidden" value="@Model.TwoThorUsername" name="TwoThorUsername">
+                <input type="hidden" value="@Model.SubjectName" name="SubjectName">
+                <input type="hidden" value="@Model.OtherName" name="OtherName">
+                <input asp-for="Review" id="Review" name ="Review" class="form-control" style="width:566px ; margin-left:0px; border: 1px solid #fb8716!important;" width="200px"/>
+                <p>How many hammers would you rate your session (1-5)?</p>
+                 <label>
+                    <input type="radio" name="HammerAmount" value="1" />
+                    <img src="../images/hammer_arg1.png" style="width:50px;">
+                </label>
+                <label>
+                    <input type="radio" name="HammerAmount" value="2"/>
+                    <img src="../images/hammer_arg2.png" style="width:50px;">
+                </label>
+                <label>
+                    <input id="fb3" type="radio" name="HammerAmount" value="3" />
+                    <img src="../images/hammer_arg3.png" style="width:50px;">
+                </label>
+                <label>
+                    <input id="fb4" type="radio" name="HammerAmount" value="4" />
+                    <img src="../images/hammer_arg4.png" style="width:50px;">
+                </label>
+                <label>
+                    <input id="fb5" type="radio" name="HammerAmount" value="5" />
+                    <img src="../images/hammer_arg5.png" style="width:50px;">
+                </label>
+                <input type="submit" class="orangebutton" />
+            </div>
+        </form>
+    </div>
+</div>

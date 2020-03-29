@@ -1,0 +1,174 @@
+@model twothor.Models.SearchResultModel
+
+<head>
+   
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">  
+    <link rel="stylesheet" href="~/css/mainpage.css" />
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<br>
+<br>
+<br>
+<br>
+<div class="wrapper">
+<div class="col-md-2">
+    <input type="image" src="../images/Go_back.png" alt="" width="30px" onclick="history.go(-1);">
+</div>
+<div class="col-md-8">
+<div class="container">
+<div class="search_searchpage">
+    <form asp-action="SearchForSubject" >
+        <div class="form-group">
+            <input type="search" id="search" name="subject" placeholder="Choose your course" style="margin-left: 150px; margin-bottom: 200px;">
+            <input type="submit" style="background: rgba(0, 204, 0, 0)  url(../images/Buttonteach.png) 0 0 no-repeat; width:200px; height:140px;  border:0 none; " value=" " class="" />
+        </div>
+    </form>
+</div>
+</div>
+</div>
+
+
+     
+<center>
+    <h1 style="margin-left:160px;"> @Model.SubjectName</h1>
+    <h4 style="margin-left:160px;">Choose your 2Thor:</h4>
+</center>
+
+
+@if(Model.Profiles != null && Model.Profiles.Count() > 0)
+{
+    while(Model.Profiles.Count() != 0)
+    {
+        float avg = 0;
+        int count = 0;
+        int profileNr = 0;
+        int index = -1;
+        float high = 0;
+        var text = "";
+        var description = "";
+        var email = "";
+        var name = "";
+        var avgtext = "";
+        var picUrl = "";
+        foreach (var profile in Model.Profiles)
+        {   
+            avg = 0;
+            count = 0;
+            index++;
+            foreach (var review in Model.Reviews)
+            {
+                if (profile.Email.Equals(review.TwoThorUsername))
+                {
+                    avg += review.HammerAmount;
+                    count++;
+                }
+            }
+            if (count > 0)
+            {
+                avg = (int)((avg*10)/count);
+                avg = (float)avg/10;
+            } 
+            if(avg >= high)
+            {
+                profileNr = index;
+                name = @profile.Name;
+                description = @profile.Description; 
+                email = @profile.Email;
+                high = avg;
+                picUrl = @profile.PictureUrl;
+            }
+        }
+
+        if (description.Length > 280)
+        {
+            description = description.Substring(0, 280) + "...";
+        }
+        <div class="row">
+        <div class="col-md-1 col-md-offset-3">
+            @if(!picUrl.Equals("null"))
+            {
+            <div style="position:relative; margin-top:20px; margin-left:20px;">
+            <a href="~/Account/Profile?chosenName=@email">
+                <img src="@Url.Content(picUrl)" style="width:90px; height:90px; position:absolute;" />
+                <img type="image" src="../images/profileFrameWhite.png" alt="" width="90px" style="position:absolute;" />
+            </a>
+            </div>
+            }
+            @if(picUrl.Equals("null"))
+            {
+            <div style="position:relative; margin-top:20px; margin-left:20px;">
+            <a href="~/Account/Profile?chosenName=@email">
+                <img src="../images/profile.png" style="width:90px; position: absolute;">
+            </a>
+            </div>
+            }
+        </div>
+
+        <div class="col-md-4 col-md-offset-1">
+            <div class="well well-sm">
+                @if(!picUrl.Equals("null"))
+                {
+                <a href="~/Account/Profile?chosenName=@email">
+                   <h4 style="">
+                        @name
+                    </h4>
+                </a>
+                <p style="">Description:<br>@description</p>
+                }
+                @if(picUrl.Equals("null"))
+                {
+                
+                <a href="~/Account/Profile?chosenName=@email">
+                    <h4 style="">
+                        @name
+                    </h4>
+                </a>
+                <p style="">Description:<br>@description</p>
+                }
+                <form asp-action="VisitProfile">
+                    <div class="form-group">
+                        <input type="hidden" value="@email" name="chosenName">
+                        <input type="submit" value="Read More" class="  orangebutton" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2 col-md-offset-1">
+            <div style="margin-top:20px;">
+                @if (count > 0)
+                {
+                    avgtext = ""+high;
+                    
+                    @if(high == 1 || high == 2 || high == 3 ||high == 4 || high == 5)
+                    {
+                        avgtext=""+high+".0";
+                    }
+                     <p3 class="smallnumber">@avgtext</p3>
+                    <img src="../images/hammer_arg.png" alt="" id="hammer_number" />                        
+                }
+            </div>
+            @if(count == 0) 
+            {
+                <h4>No reviews</h4>
+            } 
+        </div>
+        </div>
+        Model.Profiles.RemoveAt(profileNr);
+    }
+}
+
+</div>
+</div>
+<br>
+
+@section Scripts 
+{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+<center style="margin-left:10%;">
+    <img src="../images/footer2.png"> 
+</center>

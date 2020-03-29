@@ -1,0 +1,92 @@
+@model twothor.Models.ChatOverviewViewModel
+
+<head>
+     
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="~/css/mainpage.css" />
+</head>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+   <input type="image" src="../images/Go_back.png" alt="" width="30px" onclick="history.go(-1);">
+
+<div class="container" style="margin-left:100px;">
+<div class="wrapper">
+<h2 class="centerheading">Chat with @Model.message.RecipientName.Substring(0, @Model.message.RecipientName.IndexOf("@"))</h2>
+<br>
+
+<div class="well well-m">
+@foreach (var message in Model.messages) {
+    if(message.Name.Equals(User.Identity.Name))
+    {
+        <div class="wellChatYours">
+        @if(!Model.YourPPUrl.Equals("null"))
+        {
+        <div style="position:relative">
+            <img src="@Url.Content(Model.YourPPUrl)" style="width:50px; height:50px; position:absolute; margin-left:5px; margin-top: 30px;" />
+            <a href="~/Account/Profile?chosenName=@message.Name">
+                <img type="image" src="../images/profileChatHalf.png" alt="" width="50px" style="position:absolute; margin-left:5px;margin-top:30px;" />
+            </a>
+        </div>
+        }
+        @if(Model.YourPPUrl.Equals("null"))
+        {
+        <div style="position:relative">
+        <a href="~/Account/Profile?chosenName=@message.Name">
+            <img src="../images/profile.png" style="height:50px; margin-left:5px; margin-top: 30px; position: absolute;">
+        </a>
+        </div>
+        }
+        @Html.Partial("_ChatPartial", message)
+        </div>
+    }
+    if(!message.Name.Equals(User.Identity.Name))
+    {
+        <div class="wellChatOther">
+        @if(!Model.OtherPPUrl.Equals("null"))
+        {
+        <div style="position:relative">
+            <img src="@Url.Content(Model.OtherPPUrl)" style="width:50px; height:50px; position:absolute; margin-left:-55px;" />
+            <a href="~/Account/Profile?chosenName=@message.Name">
+                <img type="image" src="../images/profileFrameWhite.png" alt="" width="50px" style="position:absolute;margin-left:-55px;" />
+            </a>
+        </div>
+        }
+        @if(Model.OtherPPUrl.Equals("null"))
+        {
+        <a href="~/Account/Profile?chosenName=@message.Name">
+            <img src="../images/profile.png" style="height:50px;margin-left:-55px; position: absolute;">
+        </a>
+        }
+        @Html.Partial("_ChatPartial", message)
+        </div>
+    }
+}
+@if (Model.newReview != null)
+{
+    Html.RenderPartial("_ChatReviewPartial", Model.newReview);
+}
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-md-8 newmessage">
+                @Html.Partial("_ChatMessagePartial", Model.message)
+            </div>
+        </div>
+    </div>
+</div>
+
+ @if (Model.newJob != null)
+ {
+     Html.RenderPartial("_ChatNewJobPartial", Model.newJob);
+ }
+
+</div>
+</div>
+<center style="margin-left:0px;">
+    <img src="../images/footer2.png"> 
+</center>

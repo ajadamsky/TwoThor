@@ -1,0 +1,83 @@
+﻿@model RegisterViewModel
+
+
+<h2>@ViewData["Become a 2Thor"]</h2>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">  
+      <link rel="stylesheet" href="~/css/mainpage.css"/>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<div class="wrapper">
+<div class="row">
+    <div class="col-md-1 ">
+   <input type="image" src="../images/Go_back.png" alt="" width="30px" onclick="history.go(-1);">
+</div>
+    <div class="col-md-4 ">
+
+   <img class="profile_flash_img" src="../images/profil no pic with flash.png" alt="" >
+ 
+</div>
+    <div class="col-md-6 ">
+        <form asp-action="Register">
+            <div class ="col-xs-offset-2"><h1>Become a 2Thor</h1></div>
+           <div class ="col-lg-offset-0"><h6>Register here to become a 2Thor and use your knowledge as your superpower</h6></div>
+            <hr />
+
+            <div class="form-group">
+                <input asp-for="Name" name="Model.Name" class="form-control" placeholder="Name"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <input type="hidden" value="@Model.Email" name="Model.Email">
+            </div>
+            <div class="form-group">
+                @foreach(Subject s in Model.Subjects)
+                { 
+                    <html><input type="checkbox" class="subject_checkbox" value=@s.SubjectName name=Model.SubjectsKnown[@Model.Subjects.IndexOf(s)] />
+                    <input type="hidden" value="false" name=Model.SubjectsKnown[@Model.Subjects.IndexOf(s)] />
+                    <label class="subject_list" for=@Model.Subjects.IndexOf(s)>@s.SubjectName</label><br></html>
+                }
+            </div>
+            <div class="form-group">
+               
+                <textarea asp-for="Description" name="Model.Description" class="form-control" placeholder="Write something about your qualifications and describe what you can offer the students" /></textarea>
+               
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               <center>
+                 <button type="submit" style="background: rgba(0, 204, 0, 0)  url(../images/Buttonregister.png) 0 0 no-repeat;  width:200px; height:140px;  border:0 none;" value=" " class="" />
+          </center>
+            </div>
+        </form>
+       
+    </div>
+   
+</div>
+
+ 
+ 
+ 
+</div>
+
+@section Scripts 
+{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+<center style="margin-left:0px;">
+    <img src="../images/footer2.png"> 
+</center>
+
+</body>
+</html>

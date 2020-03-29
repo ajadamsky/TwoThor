@@ -1,0 +1,164 @@
+@model twothor.Models.HomePageModel
+
+@{
+    ViewData["Title"] = "What is 2Thor";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+     
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="~/css/mainpage.css" />
+</head>
+
+<body>
+<div class="wrapper">
+
+<div class="row">
+    <div class="col-md-12"> 
+            <img src="../images/start.png">
+            <div class="box4">
+            <p1>Welcome to 2Thor</p1></div>
+            <div class="box5">
+            <p2>Find our private teacher and become a hero of knowledge</p2></div>
+            
+            <div class="container">
+            <form asp-action="SearchForSubject">
+            <div class="form-group">
+                <input type="search" id="search" name="subject" placeholder="Choose your course" style="margin-left: 420px; margin-bottom: 200px;">
+                <input type="submit" style="background: rgba(0, 204, 0, 0)  url(../images/Buttonteach.png) 0 0 no-repeat; width:200px; height:140px;  border:0 none; " value=" " class="" />
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" id="whatitis">
+        <img src="../images/What.png"></div> 
+            <div class="box1"><p3>What is it?</p3> 
+        <p>2Thor is a private teacher platform where students from the University of Agder 
+            can become tutors and teach other students. No matter if students need help 
+            understanding the course content or help with a project, we are sure there is a 
+            tutor that can offer help to you at 2Thor. As a student you can search for 
+            the course you have problems with, choose a tutor, get contact and meet your 
+            tutor at the university to get help. 
+        If you feel like you can help other people, perfect. Register as a tutor, 
+        help students and make some extra money.
+        2Thor has the advantage that students teach students. A peer tutor can 
+        concentrate more on the students’ level of knowledge than a teacher sometimes can. 
+        Besides learning and tutoring 2Thor is also great option to get to know other 
+        students at UiA.</p>   
+           </div> 
+
+        <div class="box2"><p3>Safety instructions</p3>
+        <p>For security reasons we recommend our tutors and students to meet at the university. 
+        You can book one of the group rooms, use the library or one of the tables in the public area. 
+        Also note that just students and employees of the university can access 2Thor with their university 
+        mail. That makes the platform more secure and transparent. The University of Agder is not liable 
+        for anything that is related to 2Thor.</p>
+        <p4>2Thor is a platform where students teach other students.</p4>
+       <p3>Payment</p3>
+        <p>2Thor is a platform where students teach other students. Please keep that 
+            in mind when you define your hourly wage. We suggest a wage between a cup 
+            of coffee and 200kr per hour to make it an affordable and good experience for 
+            students and tutors.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="col-md-12" id="howimgthing">
+        <img src="../images/howFake.png"> 
+    </div>       
+</div>
+
+<center class="row">
+<iframe width="800" height="450" style="position:absolute; margin-top:-500px;margin-left:-270px;"
+        src="https://www.youtube.com/embed/JtgAG1674O0">
+</iframe>
+</center>
+</div>
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-6">
+        <div id="thor"><img src="../images/Thor1.png"></div> 
+    </div>
+    <div class="col-md-5">
+        <div class="box3" id="become2"><p5>Become a 2Thor</p5> 
+            <p>You are really good in one or more of your courses and like to help others? 
+                Then 2Thor is the perfect platform for you. Here you can show off your knowledge, 
+                help other students, socialise and earn a few Kroners on the side. To become a tutor, 
+                you have to register and accept our rules and regulations. It is important to create a 
+                completed profile with your strength and your offers so that interested students can find 
+                you as a tutor and get in touch with you. The higher amount of hammers you get
+                in your reviews, the higher in the list of tutors you will be in the courses you teach.  
+            </p>
+        <div>
+            <input type="image" id="profile" src="../images/Button profile.png" data-toggle="modal" data-target="#myModal"/>
+        </div> 
+    </div>
+</div>
+
+<div class="container2">
+  <div class ="col-xs-offset-5">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Terms and rules</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Welcome to our website. To become a 2Thor you have to read these rules carefully. With your acceptance of the rules you agree to strictly follow them.  
+                        If you continue to browse and use this website, you are agreeing to comply with and be bound 
+                        by the following terms and conditions of use, which together with our privacy policy govern 2Thors's relationship 
+                        with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.
+
+                        The term 2Thor refers to the owner of the website whose registered office is Campus Grimstad: Jon Lilletunsvei 9, 4879 Grimstad. The term 2Thor refers to the user or viewer of our website.
+
+                        The use of this website is subject to the following terms of use:
+
+                        The content of the pages of this website is for your general information and use only. It is subject to change without notice.
+                        Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or 
+                        suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that 
+                        such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.
+                        Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall 
+                        be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.
+                        <br></br>
+                        <h3>Notifications</h3>Messages will be delivered to your mailbox on the 2Thor webpage. So remember to check our page frequently. 2Thor will at some point in the future add email notifications as 
+                        an option but we would solely send notifications about messages to your email. You will not receive junk mails or any other 
+                        advertising material but we are obliged to inform you via email if we change our conditions. 2Thor will never ask about your password or any other private information, because we already have it.
+                        <br></br>
+                        <h3>Behaviour</h3> 
+                        2Thor pays particular attention to an ethically correct and nice behaviour. Should this not be the case we pleased the mentioned person to inform us via email about the incident. 
+                        <br></br>
+                        <h3>Evaluation</h3>
+                        If a student evaluates a tutor, we please you to be nice and ethically correct in what you write. If a tutor feels personally attacked or not fair treated by a comment, 
+                        please inform 2Thor via email about it so we can delete the comment from your page if necessary.  
+                        </p> 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class=" orangebutton" data-dismiss="modal">Decline</button>
+                        <input type="button" class=" orangebutton" value="Accept" onclick="location.href='@Url.Action("Register", "Account")'" />
+                    </div>
+                    </div>     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<center style="margin-left:0px;">
+    <img src="../images/footer2.png"> 
+</center>
+</div>
+
+
+
+
+</body>
+</html>

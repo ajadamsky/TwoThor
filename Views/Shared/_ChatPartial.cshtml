@@ -1,0 +1,9 @@
+@model twothor.Models.ChatMessage
+
+
+@Model.Name.Substring(0, @Model.Name.IndexOf("@")) 
+<div>
+<chatTime>@Model.Time</chatTime>
+<br>
+<br>@Model.Content
+</div>

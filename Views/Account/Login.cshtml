@@ -1,0 +1,71 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model twothor.Models.AccountViewModels.LoginViewModel
+
+
+<head>
+     
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="~/css/mainpage.css" />
+</head>
+<div class="wrapper">
+<div class="col-md-10 col-md-offset-2">
+    <div class="feidelanguageblack">English | 
+        <div class="feidelanguageblackunderline">Bokmål</div> | 
+        <div class="feidelanguageblackunderline">Nynorsk</div> | 
+        <div class="feidelanguageblackunderline">Sámegiella</div></div><br>
+    <div class="feideHeadline">Log in with Feide</div><br>
+    <div class="feidetext">2Thor has requested you to log in with Feide.</div>
+    <img src="../images/FeideLogo.png" style="margin-left:650px; margin-bottom: 50px; filter:grayscale(100%)">
+
+<div class="wellGrayFeide">
+    <div class="row">
+        <form asp-action="LoginFunction" asp-controller="Account">
+            <div style="margin:10px;">
+            <h7>Log in with your Feide account from <strong>University of Agder</strong>.</h7>
+            <div class="form-group">
+                <label asp-for="Email">Email</label><br>
+                <input asp-for="Email" name="Model.Email" class="feideform" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label><br>
+                <input asp-for="Password" name="Model.Password" class="feideform" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Submit" id="Submit" class="btn  bluebutton">Log in  &#128275;</button>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-7  col-md-offset-3">
+        <p>Are you debugging? Hit one of these buttons to log in!</p>
+        <form asp-action="LoginToDebug">
+            <div class="form-group">
+                2Thors:<br>
+                <button type="submit" value="baard@student.uia.no" name="user" class="btn btn-default">Bård Magnus</button>
+                <button type="submit" value="even@student.uia.no" name="user" class="btn btn-default">Even</button>
+                <button type="submit" value="franziska@student.uia.no" name="user" class="btn btn-default">Franziska</button>
+                <button type="submit" value="adrian@student.uia.no" name="user" class="btn btn-default">Adrian</button>
+                <br><br>Students (which can be upgraded to 2Thors):<br>
+                <button type="submit" value="harry@student.uia.no" name="user" class="btn btn-default">Harry</button>
+                <button type="submit" value="lars@student.uia.no" name="user" class="btn btn-default">Lars</button>
+                <button type="submit" value="knut@student.uia.no" name="user" class="btn btn-default">Knut</button>
+                <button type="submit" value="christian@student.uia.no" name="user" class="btn btn-default">Christian</button>
+                <button type="submit" value="steve@student.uia.no" name="user" class="btn btn-default">Steve</button>
+                <button type="submit" value="john@student.uia.no" name="user" class="btn btn-default">John</button>
+                <button type="submit" value="susie@student.uia.no" name="user" class="btn btn-default">Susie</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>

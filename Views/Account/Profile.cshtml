@@ -1,0 +1,284 @@
+@model twothor.Models.TwoThorOverviewViewModel
+
+<!DOCTYPE html>
+<html>
+
+<head>
+     
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">  
+     <link rel="stylesheet" href="~/css/mainpage.css" />
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="wrapper">
+    
+    <input type="image" src="../images/Go_back.png" alt="" width="30px" onclick="history.go(-1);">
+
+<!-- When its your profile that is being opened -->
+@if (Model.ownProfile) 
+{
+    <div class="col-md-12 ">
+        <center><div class ="col-xs-offset-3"><h1>@Model.Profile.Name</h1></div>    </center>
+    </div>
+    <div class="container" style="margin-left:100px;">
+    <div class="row">
+    <div class="col-md-3">
+
+        <form asp-action="EditProfilePicture" style="margin-top:65px;">
+            <div class="form-group">
+                <label>Input valid picture URL:</label>
+                <input asp-for="@Model.Profile.PictureUrl" name="Url" class="form-control" />
+                <span asp-validation-for="@Model.Profile.PictureUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="Submit" value="Submit" class="orangebutton">Set Picture</button>
+            </div>
+        </form>
+
+        @if(!Model.Profile.PictureUrl.Equals("null"))
+        {
+            <div style="position:relative">
+                <img src="@Url.Content(Model.Profile.PictureUrl)" style="width:100px; height:100px; position:absolute;" />
+                <img type="image" src="../images/profileFrameWhite.png" alt="" width="100px" style="position:absolute;" />
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        }
+        @if(Model.Profile.PictureUrl.Equals("null"))
+        {
+            <img src="../images/profile.png" width="100px" id="image">
+        }
+        <h3>Currently teaching:</h3>
+        <br />
+        @foreach (var subject in Model.Subjects)
+        {
+            <p>- @subject.SubjectName</p>
+        }
+    </div> 
+    <div class="col-md-5 col-md-offset-0">
+        @Html.Partial("_ProfileEditPartial", Model.RegisterModel)
+    </div>
+    <div class="col-md-3 col-md-offset-1" >
+       <h3 style="margin-top:66px;">Active jobs:</h3>
+    
+        @if(Model.Jobs != null && @Model.Jobs.Count != 0)
+        {
+            
+            foreach(TwoThorJob job in Model.Jobs)
+            {
+                Html.RenderPartial("_JobDisplayPartial", job);
+            }
+        }
+        else
+        {
+            <p>You have no current jobs!</p>
+        }
+        <br />     
+    </div>
+    </div>
+    </div>
+}
+<!-- When its not your profile that is being opened -->
+
+@if (!Model.ownProfile) 
+{
+    <div class="col-md-12 ">
+        <center><div class ="col-xs-offset-2"><h1>@Model.Profile.Name</h1></div></center>
+    </div>
+    <div class="col-md-3">
+    @if(!Model.Profile.PictureUrl.Equals("null"))
+    {
+        <div style="position:relative">
+            <img src="@Url.Content(Model.Profile.PictureUrl)" style="width:150px; height:150px; position:absolute; margin-top:100px;" />
+            <img type="image" src="../images/profileFrameWhite.png" alt="" width="150px" style="position:absolute; margin-top:100px;" />
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    }
+    @if(Model.Profile.PictureUrl.Equals("null"))
+    {
+        <img src="../images/profile.png" width="150px" style="position:absolute; margin-top:100px;">
+    }
+    </div>  
+    
+
+    <div class="col-md-8 col-md-offset-0 ">
+    <h5>Currently teaches:</h5>
+
+    @foreach (var subject in Model.Subjects)
+    {
+        <p style="color:#949494; ">- @subject.SubjectName</p>
+    }
+    <br>
+    <br />
+        <h5>Description</h5>
+        <p>@Model.Profile.Description</p>
+    
+    <br>
+    <h5>Contact 2Thor:</h5>
+        @Html.Partial("_ChatMessagePartial", Model.Message)
+    </div>
+    <div class="col-md-1">
+        <img src="../images/ThorLeft.png" width="200px" style="margin-top: -50px;" >
+    </div>
+    
+}
+
+<br>
+
+<!--    The rest of the page stays the same in both cases
+        First the current subjects the 2Thor teaches is shown
+        Then the ranking/hammer amount for those subjects is displayed    -->
+
+
+
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <p5 style="margin-left: 200px;"></p5>
+    </div>
+</div>
+<br>
+<div class="row">
+
+<div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <p5 style="margin-left: 200px;">Reviews:</p5>
+    </div>
+    <div class="col-md-6">
+        <div class="box7"><p1>Top comment:</p1>
+    </div>
+</div>
+<br>
+<div class="row">
+
+</div>
+
+@foreach (var subject in Model.Subjects)
+{   
+    float avg = 0;
+    int count = 0;
+    var text = "";
+    var reviewer = "";
+    int bestReview = 0;
+    int bestReviewHammerAmount = 0;
+    foreach (var review in Model.Reviews)
+    {
+        if (subject.SubjectName.Length > 6 && review.SubjectName.Length > 6 && subject.SubjectName.Substring(0,6).Equals(review.SubjectName.Substring(0,6)))
+        {
+            avg += review.HammerAmount;
+            count++;
+            if (review.HammerAmount > bestReview)
+            {
+                bestReview=review.HammerAmount;
+                if (!review.Review.Equals(""))
+                {
+                    text = review.Review;
+                    reviewer = review.OtherName;
+                    bestReviewHammerAmount = review.HammerAmount;
+                }
+            }
+        }
+    }
+    
+    if (count > 0)
+    {
+        
+        avg = (int)((avg*10)/count);
+        avg = (float)avg/10;
+        var avgtext = ""+avg;
+
+        <div class="row">
+            <div class="col-md-5">
+                <p class="reviewSubject"> @subject.SubjectName</p>
+            </div>
+            <div class="col-md-1" style="margin-top:10px;">
+                @if(avg == 1 || avg == 2 || avg == 3 || avg == 4 || avg == 5)
+                {
+                    avgtext=""+avg+".0";
+                }
+                <p3 class="smallnumber">@avgtext</p3>
+                <img src="../images/hammer_arg.png" alt="" id="hammer_number" />
+            </div>
+            
+            <div class="col-md-1">
+                <div class="box6">
+                    <img src="../images/profile.png" style="height:60px; margin-top:10px; margin-left:10px" />
+                </div>
+            </div>
+            <div class="col-md-4">
+            @if (!text.Equals(""))
+            {   
+                <reviewText>@reviewer.Substring(0, reviewer.IndexOf("@")): @text </reviewText><br>
+                @for(int i = 0; i < @bestReviewHammerAmount; i++)
+                {
+                    if(i==0)
+                    {
+                        <img src="../images/how4.png" alt="" id="hammer_number_small" style="margin-top:20px;" />
+                    }
+                    if(i!=0)
+                    {
+                        <img src="../images/how4.png" alt="" id="hammer_number_small" style="margin-top:20px;" />
+                    }
+                }           
+            }
+            </div>
+        </div>
+    }
+    else {
+        <div class="row">
+            <div class="col-md-5">
+                <p class="reviewSubject"> @subject.SubjectName</p> 
+            </div>
+            <div class="col-md-1" style="margin-top:10px;">
+                <p3 class="smallnumber">0.0</p3>
+                <img src="../images/hammer_arg.png" alt="" id="hammer_number" />
+            </div>
+            
+            <div class="col-md-6">
+                <div class="box6">
+                    <reviewText style="line-height:90px; margin-left:30px;">Currently no reviews for @subject.SubjectName</reviewText>
+                </div>
+            </div>
+        </div>
+    } 
+}
+<div class="row">
+    <div class="col-md-6">
+        <h3></h3>
+    </div>
+    <div class="col-md-6">
+        <div class="box7" style="border-radius: 0 0 50px 50px;width:555px; height:20px;"></div>
+    </div>
+</div>
+
+</div>
+</div>
+<br>
+<br>
+<center style="margin-left:0px;">
+    <img src="../images/footer2.png"> 
+</center>
+
+</body>
+
+@section Scripts 
+{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+</html>

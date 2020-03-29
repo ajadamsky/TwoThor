@@ -1,0 +1,70 @@
+@model IEnumerable<twothor.Models.ChatDisplay>
+
+<head>
+     
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="~/css/mainpage.css" />
+</head>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="wrapper">
+
+   <input type="image" src="../images/Go_back.png" alt="" width="30px" onclick="history.go(-1);">
+
+<div class="container" style="margin-left:100px">
+    <h1  class="centerheading">Thundermail</h1>
+<br>
+@foreach (var message in Model) {
+    if(message.Read)
+    {
+    <div class="wellWhite">
+        <div style="margin-left:10px;">
+        <a href="~/Chat/ShowChat?chosenName=@message.Chatname">
+            <img src="../images/profile.png" style="height:50px">
+        </a>
+        @message.Chatname.Substring(0, @message.Chatname.IndexOf("@"))
+        <br>
+        <chattime>@message.Time:</chattime> <br>
+            @message.PreviousName.Substring(0, @message.PreviousName.IndexOf("@")): @message.Content
+        <form asp-action="ShowChat">
+            <div class="form-group">
+                <input type="hidden" value="@message.Chatname" name="chosenName">
+                <input type="submit" value="Enter chat" class="  orangebutton" />
+            </div>
+        </form>
+        </div>
+    </div>
+    }
+    if(!message.Read)
+    {
+    <div class="wellBlue">
+        <div style="margin-left:10px;">
+        <a href="~/Chat/ShowChat?chosenName=@message.Chatname">
+            <img src="../images/profile.png" style="height:50px">
+        </a>
+        
+        @message.Chatname.Substring(0, @message.Chatname.IndexOf("@")) (unread messages)
+        <br>
+        <chattime>@message.Time:</chattime> <br>
+            @message.PreviousName.Substring(0, @message.PreviousName.IndexOf("@")): @message.Content
+        <form asp-action="ShowChat">
+            <div class="form-group">
+                <input type="hidden" value="@message.Chatname" name="chosenName">
+                <input type="submit" value="Enter chat" class="  orangebutton" />
+            </div>
+        </form>
+        </div>
+    </div>
+    }
+}
+</div>
+</div>
+<br>
+<br>
+<center style="margin-left:0px;">
+    <img src="../images/footer2.png"> 
+</center>

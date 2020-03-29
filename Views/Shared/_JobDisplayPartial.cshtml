@@ -1,0 +1,19 @@
+@model twothor.Models.TwoThorJob
+
+<form asp-action="EditJob">
+    <div asp-validation-summary="ModelOnly"></div>
+    <p>
+    <div class="form-group">
+        Helping @Model.OtherName.Substring(0, @Model.OtherName.IndexOf("@")) with @Model.JobSubject on @Model.Date.ToString().Substring(0,10) at @Model.Time.ToString().Substring(11,2):@Model.Time.ToString().Substring(14,2) in @Model.Location
+        <input type="hidden" value=@Model.Time name="Time">
+        <input type="hidden" value="@Model.OtherName" name="OtherName">
+        <input type="hidden" value="@Model.JobSubject" name="JobSubject">
+        <br>
+        <button type="submit" value="Complete" id="Submit" name="Submit" class="orangebutton">Complete</button>
+        &nbsp;&nbsp;&nbsp;
+        <input type="image" id="Delete" src="../images/delete2.png" value="Delete" name="Submit" width="30px" style="margin-bottom:-15px"/>
+        
+    </div>
+    </p>
+    <br>
+</form>
